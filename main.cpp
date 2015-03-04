@@ -38,13 +38,23 @@ void printGrid(void)
   //Print the current board and instructions
   clear(); 	//Allows the board to be reprinted in the same location
   printw("Use the arrow keys to shift the tiles!\n");
-  printw("\n+----+----+----+----+\n");
+  printw("\n");
+  for (int w = 0; w < COLUMN; w++) {
+    printw("+----");
+  }
+  printw("+\n");
+
   for (int i = 0; i < ROW; i++) {
     for (int j = 0; j < COLUMN; j++) {
       if (grid[i][j]) printw("|%4d",grid[i][j]);
       else printw("|    ");
     }
-    printw("|\n+----+----+----+----+\n");
+    printw("|\n");
+
+    for (int w = 0; w < COLUMN; w++) {
+      printw("+----");
+    }
+    printw("+\n");
   }
   printw("\n");
 
