@@ -10,8 +10,8 @@
 #include <ncurses.h>
 #include <random>
 
-#define ROW 4
-#define COLUMN 4
+#define ROW 1
+#define COLUMN 8
 #define WIN_VAL 2048
 
 enum direction {UP, LEFT, DOWN, RIGHT};
@@ -172,11 +172,9 @@ int main(void)
   cbreak();
   keypad(stdscr, TRUE);
 
-  //Begin game
-  randomTwo();
-  printGrid();
-
   while(!boardFull()) {
+    randomTwo();
+    printGrid();
     int c = getch();
     switch(c) {
       case KEY_UP:
@@ -194,8 +192,6 @@ int main(void)
       default:
         break;
     }
-    randomTwo();
-    printGrid();
   }
 
   printw("You lost the game.\nPress any key to exit.\n");
